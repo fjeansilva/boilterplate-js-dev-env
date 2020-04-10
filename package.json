@@ -2,7 +2,9 @@
   "name": "boilterplate-js-dev-env",
   "version": "1.0.0",
   "description": "JavaScript development environment boilterplace by Jean Silva",
-  "scripts": {},
+  "scripts": {
+    "start": "node build-scripts/src-server.js"
+  },
   "author": "Jean Silva",
   "license": "MIT",
   "dependencies": {
