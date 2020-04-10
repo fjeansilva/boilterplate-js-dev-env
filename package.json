@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "JavaScript development environment boilterplace by Jean Silva",
   "scripts": {
-    "start": "node build-scripts/src-server.js"
+    "prestart": "node build-scripts/start-message.js",
+    "start": "npm-run-all --parallel open:src share",
+    "open:src": "node build-scripts/src-server.js",
+    "share": "./ngrok http 80"
   },
   "author": "Jean Silva",
   "license": "MIT",
