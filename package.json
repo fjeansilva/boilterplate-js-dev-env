@@ -4,7 +4,7 @@
   "description": "JavaScript development environment boilterplace by Jean Silva",
   "scripts": {
     "prestart": "babel-node build-scripts/start-message.js",
-    "start": "npm-run-all --parallel open:src share",
+    "start": "npm-run-all --parallel open:src",
     "open:src": "babel-node build-scripts/src-server.js",
     "share": "npx http-server ./src"
   },
@@ -14,9 +14,11 @@
     "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
-    "babel-cli": "6.16.0",
-    "babel-core": "6.17.0",
-    "babel-loader": "6.2.5",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.5",
+    "babel-loader": "^8.1.0",
     "babel-preset-latest": "6.16.0",
     "babel-register": "6.16.3",
     "chai": "3.5.0",
@@ -44,9 +46,9 @@
     "rimraf": "2.5.4",
     "style-loader": "0.13.1",
     "surge": "0.20.4",
-    "webpack": "1.13.2",
-    "webpack-dev-middleware": "1.8.4",
-    "webpack-hot-middleware": "2.13.0",
-    "webpack-md5-hash": "0.0.5"
+    "webpack": "^4.42.1",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-hot-middleware": "^2.25.0",
+    "webpack-md5-hash": "0.0.6"
   }
 }
