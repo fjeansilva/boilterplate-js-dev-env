@@ -4,7 +4,7 @@
   "description": "JavaScript development environment boilterplace by Jean Silva",
   "scripts": {
     "prestart": "babel-node build-scripts/start-message.js",
-    "start": "npm-run-all --parallel open:src lint:watch test:watch",
+    "start": "npm-run-all --parallel open:src share lint:watch test:watch",
     "open:src": "babel-node build-scripts/src-server.js",
     "share": "npx http-server ./src",
     "lint": "esw webpack.config.* src build-scripts --color",
