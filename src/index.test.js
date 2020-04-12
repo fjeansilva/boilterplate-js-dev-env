@@ -10,12 +10,12 @@ describe('Our first test', () => {
 });
 
 describe('index.html', () => {
-  it('should say hello', (done) => {
+  it('should have h1 that says Users', (done) => {
     const options = { contentType: 'text/html' };
     JSDOM.fromFile('./src/index.html', options)
     .then(dom => {
       const h1 = dom.window.document.getElementsByTagName('h1')[0];
-      expect(h1.innerHTML).to.equal('Hello JS');
+      expect(h1.innerHTML).to.equal('Users');
       done();
     }).catch(done);
   });
