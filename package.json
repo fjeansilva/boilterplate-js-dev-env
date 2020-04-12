@@ -6,7 +6,7 @@
     "prestart": "babel-node build-scripts/start-message.js",
     "start": "npm-run-all --parallel open:src share",
     "open:src": "babel-node build-scripts/src-server.js",
-    "share": "./ngrok http 80"
+    "share": "npx http-server ./src"
   },
   "author": "Jean Silva",
   "license": "MIT",
