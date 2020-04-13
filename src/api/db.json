@@ -1,22 +1,3 @@
 {
-  "users": [
-    {
-      "id": 53143991.63143551,
-      "firstName": "consectetur",
-      "lastName": "veniam nostrud",
-      "email": "incididunt"
-    },
-    {
-      "id": 80921830.05758315,
-      "firstName": "exercitation sit magna est minim",
-      "lastName": "in sit eiusmod",
-      "email": "irure et non quis"
-    },
-    {
-      "id": 64796392.297904894,
-      "firstName": "occaecat nostrud",
-      "lastName": "eu tempor in ea",
-      "email": "pariatur sunt in irure adipisicing"
-    }
-  ]
+  "users": []
 }

@@ -4,14 +4,16 @@
   "description": "JavaScript development environment boilterplace by Jean Silva",
   "scripts": {
     "prestart": "babel-node build-scripts/start-message.js",
-    "start": "npm-run-all --parallel open:src share lint:watch test:watch",
+    "start": "npm-run-all --parallel open:src lint:watch test:watch start-mockapi",
     "open:src": "babel-node build-scripts/src-server.js",
-    "share": "npx http-server ./src",
+    "share": "npx http-server ./src -p 3002",
     "lint": "esw webpack.config.* src build-scripts --color",
     "lint:watch": "npm run lint -- --watch",
     "test": "mocha --require @babel/register --reporter progress build-scripts/test-setup.js \"src/**/*.test.js\"",
     "test:watch": "npm run test -- --watch",
-    "generate-mock-data": "babel-node build-scripts/generate-mock-data"
+    "generate-mock-data": "babel-node build-scripts/generate-mock-data",
+    "prestart-mockapi": "npm run generate-mock-data",
+    "start-mockapi": "json-server --watch src/api/db.json --port 3001"
   },
   "author": "Jean Silva",
   "license": "MIT",
