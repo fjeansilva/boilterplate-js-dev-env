@@ -1,5 +1,6 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 export default {
@@ -13,7 +14,7 @@ export default {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: '[name].js'
+    filename: '[name].[contenthash].js' // The [contenthash] substitution will add a unique hash based on the content of an asset
   },
   optimization: {
     minimizer: [
@@ -45,6 +46,8 @@ export default {
     }
   },
   plugins: [
+
+    // Create HTML file that includes reference to bundled JS.
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       minify: {
