@@ -1,6 +1,7 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 export default {
@@ -46,6 +47,13 @@ export default {
     }
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // all options are optional
+      filename: '[name].[contenthash].css',
+      chunkFilename: '[id].[contenthash].css',
+      ignoreOrder: false, // Enable to remove warnings about conflicting order
+    }),
 
     // Create HTML file that includes reference to bundled JS.
     new HtmlWebpackPlugin({
@@ -78,8 +86,8 @@ export default {
         }
       },
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader']
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       }
     ]
   }
