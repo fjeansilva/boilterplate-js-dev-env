@@ -3,6 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 export default {
   devtool: 'source-map',
@@ -21,7 +22,8 @@ export default {
     minimizer: [
       new UglifyJsPlugin({
         sourceMap: true,
-      })
+      }),
+      new OptimizeCssAssetsPlugin({})
     ],
     splitChunks: {
       chunks: 'async',
@@ -87,7 +89,14 @@ export default {
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            loader: 'css-loader',
+          }
+        ]
       }
     ]
   }
